@@ -3,7 +3,6 @@ import os
 import csv
 
 from flask import Blueprint, flash, g, jsonify, redirect, render_template, request, session, url_for
-from itsdangerous import json
 from werkzeug.security import check_password_hash, generate_password_hash
 from teresaefrancisco.tools import tools
 from teresaefrancisco.model import Model

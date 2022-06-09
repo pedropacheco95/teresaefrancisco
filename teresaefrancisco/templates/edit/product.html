@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% import 'macros/products.html' as products_macro %}
+
+{% block content %}
+<div class="product_form_container">
+    <form method="post" class="product_form"  enctype="multipart/form-data">
+            <div class="product_attribute_container">
+                <label for="name"> Name</label>
+                <input type="text" name="name" placeholder="{{product.name}}">
+            </div>
+            <div class="product_attribute_container">
+                <label for="description"> Description</label>
+                <input type="text" name="description" placeholder="{{product.description}}">
+            </div>
+            <div class="product_attribute_container">
+                <label for="price"> Price</label>
+                <input type="number" name="price" placeholder="{{product.price}}">
+            </div>
+            <div class="product_attribute_container">
+                <label for="store"> Store</label>
+                <input type="text" name="store" placeholder="{{product.store}}">
+            </div>
+            <div class="product_attribute_container">
+                <label for="for_honeymoon"> Honeymoon</label>
+                <input type="checkbox" name="for_honeymoon" {{ "checked" if product.for_honeymoon }}>
+            </div>
+            {% if product.images %}
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <th>Path</th>
+                        <th>Apagar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for image in product.images %}
+                    <tr>
+                        <td>{{image.path}}</td>
+                        <td><input type="checkbox" name="images_to_delete" value="{{image.id}}"></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+            <div class="product_attribute_container">
+                <label for='picture'>Fotografias </label>
+                <input type="file" name="pictures" multiple>
+            </div>
+            <button class ="accept">Gravar</button>
+    </form>
+</div>
+{% endblock %}

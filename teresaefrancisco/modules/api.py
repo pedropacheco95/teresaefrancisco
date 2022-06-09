@@ -22,11 +22,6 @@ def create(table_name=None):
 @bp.route('/delete_confirmation/<id>', methods=('GET', 'POST'))
 def delete_confirmation(id):
     confirmation = Confirmation.query.filter_by(id=id).first()
-    print('::::::::::')
-    print('::::::::::')
-    print(confirmation)
-    print('::::::::::')
-    print('::::::::::')
     if confirmation:
         confirmation.delete()
     return redirect(url_for('confirmations.all'))

@@ -12,6 +12,21 @@
             </div>
         </div>
         <div class="text_wed_info_background">
+            <div class="text_wed_info side_by_side">
+                <div class="image_align_left">
+                    <div class="text_wed_info_img slidingAppearingDivsLeft church_image_container">
+                        <img src="{{url_for('static',filename='images/church.png')}}" alt="">
+                    </div>
+                </div>
+                <div class="info_align_right">
+                    <div class="text_wed_info_block index_block_text">
+                        <p id="indicacoes" class="slidingAppearingDivsLeft"><b>Mosteiro de <br> São Pedro de Cête</b></p>
+                        <button class="show_map slidingAppearingDivsLeft" onclick="revealMap(this,'map_church')"> Mostrar mapa</button>
+                        <iframe id="map_church" class="slidingAppearingDivsLeft" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d192124.2817694121!2d-8.66748378270969!3d41.2012401778593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd248ee3a732ee97%3A0xa5b3476db195891f!2sMosteiro%20de%20S%C3%A3o%20Pedro%20de%20C%C3%AAte!5e0!3m2!1spt-PT!2spt!4v1654720070955!5m2!1spt-PT!2spt"
+                        width="90%" height="100%" style="border:0;display: none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
             <div class="appearingDivs">
                 <div class="text_wed_info">
                     <div class="info_align_left">
@@ -25,21 +40,6 @@
                     <div class="image_align_right">
                         <div class="text_wed_info_img full_width_image sliddingDivs">
                             <img src="{{url_for('static',filename='images/house.png')}}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="text_wed_info side_by_side">
-                    <div class="image_align_left">
-                        <div class="text_wed_info_img slidingAppearingDivsLeft church_image_container">
-                            <img src="{{url_for('static',filename='images/church.png')}}" alt="">
-                        </div>
-                    </div>
-                    <div class="info_align_right">
-                        <div class="text_wed_info_block index_block_text">
-                            <p id="indicacoes" class="slidingAppearingDivsLeft"><b>Mosteiro de <br> São Pedro de Cête</b></p>
-                            <button class="show_map slidingAppearingDivsLeft" onclick="revealMap(this,'map_church')"> Mostrar mapa</button>
-                            <iframe id="map_church" class="slidingAppearingDivsLeft" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d192124.2817694121!2d-8.66748378270969!3d41.2012401778593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd248ee3a732ee97%3A0xa5b3476db195891f!2sMosteiro%20de%20S%C3%A3o%20Pedro%20de%20C%C3%AAte!5e0!3m2!1spt-PT!2spt!4v1654720070955!5m2!1spt-PT!2spt"
-                            width="90%" height="100%" style="border:0;display: none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>

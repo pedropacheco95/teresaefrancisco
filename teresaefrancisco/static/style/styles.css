@@ -596,7 +596,7 @@ button.delete {
 }
 
 .church_image_container img{
-  width: 100vw;
+  width: 50vw;
 }
 
 #contribute{
@@ -1031,7 +1031,7 @@ button:focus {
 .side_by_side{
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .side_by_side .image_align_left{

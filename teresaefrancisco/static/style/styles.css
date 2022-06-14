@@ -463,6 +463,10 @@ body, html {
   border-radius: 10px;
 }
 
+.church_image_container img{
+  width:50vw;
+}
+
 .product_card.paid img {
   filter: grayscale(100%);
 }
@@ -595,9 +599,18 @@ button.delete {
   background-color: #f80000;
 }
 
-.church_image_container img{
-  width: 50vw;
+.index_car_container img{
+  width: 20vw;
+  position: absolute;
+  transition: all 0.1s ease;
 }
+
+.index_car_container{
+  display: flex;
+  min-height: 8rem;
+  align-items: flex-end;
+}
+
 
 #contribute{
   margin: 0;

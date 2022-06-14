@@ -1,4 +1,6 @@
-var contentDivs = document.querySelectorAll(".sliddingDivs, .appearingDivs, .slidingAppearingDivsRight, .slidingAppearingDivsLeft");
+var contentDivs = document.querySelectorAll(".sliddingDivs, .appearingDivs, .slidingAppearingDivsRight, .slidingAppearingDivsLeft","index_car_container");
+var car = document.getElementById('car');
+var car_width = parseFloat(getComputedStyle(car).getPropertyValue('width'))
 
 window.addEventListener('load', onload);
 window.addEventListener('scroll', checkContentDivs,false);
@@ -16,6 +18,19 @@ function checkContentDivs() {
             div.classList.remove('show');
         }
     });
+    moveCar(car);
+}
+
+function moveCar(car){
+    var scroll = $(document).scrollTop();
+    let width = window.innerWidth;
+    var scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
+    let percentage = (scroll-scrollableHeight/2) / (scrollableHeight/2);
+    let move = percentage*width;
+    if (move > 0){
+        /* car.style.left = (move) + "px"; */
+        car.style.left = (move-car_width) + "px";
+    }
 }
 
 function revealMap(element,map_name){

@@ -157,4 +157,12 @@
     .productSliddingDivs:nth-of-type(odd).show, .productSliddingDivs.show {
         transform: translateX(0);
     }
+
+    .index_car_container img{
+        width: 30vw!important;
+      }
+      
+    .index_car_container{
+        min-height: 4rem!important;
+    }
 }

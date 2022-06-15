@@ -7,9 +7,11 @@
         {% else %}
         <img src="{{url_for('static',filename='images/products/no_product.jpg')}}" alt="Imagem da Peça">
         {% endif %}
-        {% if product.show_price %}
         <div>
             <p>{{product.name}}</p>
+        </div>
+        {% if product.show_price %}
+        <div>
             <p>{{product.price}}€</p>
             {{progress_bar.progress_bar(product.calculate_percentage()|int)}}
         </div>

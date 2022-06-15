@@ -50,6 +50,9 @@
                 <input type="file" name="pictures" multiple>
             </div>
             <button class ="accept">Gravar</button>
-    </form>
+        </form>
+        <form method="post" action="{{url_for('edit.product',product_id=product.id,delete='delete')}}" class="product_form">
+            <button class ="delete">Apagar</button>
+        </form>
 </div>
 {% endblock %}

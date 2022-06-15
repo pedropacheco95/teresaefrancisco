@@ -1,4 +1,4 @@
-id,name,description,price,price_paid,store,for_honeymoon
+id,name,description,price,price_paid,store,show_price
 1,Cadeiras de Jantar,,1600.0,0.0,AREA,False
 2,Cama e colchão,,690.0,0.0,IKEA,False
 3,Móvel TV,,214.0,0.0,IKEA,False

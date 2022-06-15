@@ -8,6 +8,7 @@ function generateContributionsCSV(){
 function downloadFile(filename) {
     // Create a link and set the URL using `createObjectURL`
     const link = document.createElement("a");
+    link.download = 'contributions.csv';
     link.style.display = "none";
     link.href = filename
 

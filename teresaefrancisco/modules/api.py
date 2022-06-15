@@ -2,7 +2,7 @@ import functools
 import os
 import csv
 
-from flask import Blueprint, flash, g, jsonify, redirect, render_template, request, session, url_for
+from flask import Blueprint, flash, g, jsonify, redirect, render_template, request, current_app, url_for
 from werkzeug.security import check_password_hash, generate_password_hash
 from teresaefrancisco.tools import tools
 from teresaefrancisco.model import Model
@@ -21,6 +21,7 @@ def create(table_name=None):
 @bp.route('/delete_confirmation/<id>', methods=('GET', 'POST'))
 def delete_confirmation(id):
     confirmation = Confirmation.query.filter_by(id=id).first()
+
     if confirmation:
         confirmation.delete()
     return redirect(url_for('confirmations.all'))
@@ -43,7 +44,8 @@ def to_csv(model):
             instance_values.append(getattr(instance, field))
         values[model].append(instance_values)
 
-    file = os.path.join('teresaefrancisco/static/data/csv', '%s.csv' % model)
+    filename = 'data/csv/%s.csv' % model
+    file = current_app.root_path + url_for('static', filename = filename)
     rows = values[model]
 
     with open(file, 'w') as f:

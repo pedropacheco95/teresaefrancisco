@@ -14,3 +14,7 @@ def faqs():
     q_and_as = [
     ]
     return render_template('main/faqs.html',q_and_as=q_and_as)
+
+@bp.route('/personalize', methods=('GET', 'POST'))
+def personalize():
+    return render_template('main/personalize.html')

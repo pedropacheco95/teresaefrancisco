@@ -1,5 +1,4 @@
 {% extends 'layout.html' %}
-{% import 'macros/products.html' as products_macro %}
 
 {% block content %}
 <script src="{{ url_for('static', filename='js/edit_products.js')}}" defer></script>
@@ -13,7 +12,8 @@
             <th>Price</th>
             <th>Price paid</th>
             <th>Store</th>
-            <th>For Honeymoon</th>
+            <th>Show price</th>
+            <th>Priority</th>
         </tr>
     </thead>
     <tbody>
@@ -24,10 +24,13 @@
                 <td class="no_padding">{{product.price}}</td>
                 <td class="no_padding">{{product.price_paid}}</td>
                 <td class="no_padding">{{product.store}}</td>
-                <td class="no_padding"><input type="checkbox" value="0" {{ "checked" if product.for_honeymoon }}></td>
+                <td class="no_padding"><input type="checkbox" value="0" {{ "checked" if product.show_price }}></td>
+                <td class="no_padding">{{product.priority}}</td>
             </tr>
         {% endfor %}
     </tbody>
 </table>
+{% set url = url_for('create.product') %}
+<button class="rsvp_button" data-url="{{url}}" onclick="redirectTo(this)"> Criar produto </button>
 </div>
 {% endblock %}

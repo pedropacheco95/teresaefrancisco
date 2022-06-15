@@ -5,10 +5,10 @@
     <div class="indexContainer">
         <div class="indexContent index_background loading_animation">
             <div class="text_wed_align">
-                <div class="loading_animation" id="website_title"> <b>TERESINHA e FRANCISCO </b></div>
+                <div class="loading_animation" id="website_title"> <b>{{information['title']}} </b></div>
                 <div class="loading_animation extra_info">23/7, 15:00</div>
                 {% set url = url_for('confirmations.confirmation') %}
-                <button class="" data-url="{{url}}" onclick="redirectTo(this)"> RSVP </button>
+                <button class="rsvp_button" data-url="{{url}}" onclick="redirectTo(this)"> RSVP </button>
             </div>
         </div>
         <div class="text_wed_info_background">

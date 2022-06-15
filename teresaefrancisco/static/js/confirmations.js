@@ -18,6 +18,7 @@ function generateConfirmationsCSV(){
 function downloadFile(filename) {
     // Create a link and set the URL using `createObjectURL`
     const link = document.createElement("a");
+    link.download = 'confirmations.csv';
     link.style.display = "none";
     link.href = filename
 

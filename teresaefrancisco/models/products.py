@@ -13,7 +13,8 @@ class Product(db.Model ,model.Model,model.Base):
     price = Column(Float)
     price_paid = Column(Float, default= 0.0)
     store = Column(Text)
-    for_honeymoon = Column(Boolean, default=False)
+    show_price = Column(Boolean, default=True)
+    priority = Column(Integer, default=10)
 
     images = relationship('ProductImage', back_populates="product")
     contributions = relationship('Contribution', back_populates="product")
@@ -45,7 +46,7 @@ class Product(db.Model ,model.Model,model.Base):
             self.price = values['price']
         if values['store'] and values['store'] != self.store:
             self.store = values['store']
-        if values['for_honeymoon'] != self.for_honeymoon:
-            self.for_honeymoon = values['for_honeymoon']
+        if values['show_price'] != self.show_price:
+            self.show_price = values['show_price']
         self.save()
         return True

@@ -16,15 +16,16 @@ def product():
         description = request.form.get('description')
         price = float(request.form.get('price')) if request.form.get('price') else None
         store = request.form.get('store')
-        for_honeymoon = True if request.form.get('for_honeymoon') else False
+        show_price = True if request.form.get('show_price') else False
+        priority = int(request.form.get('priority')) if request.form.get('priority') else None
 
-        product = Product(name=name,price=price)
+        product = Product(name=name,price=price,show_price=show_price)
         if description:
             product.store = description
         if store:
             product.store = store
-        if for_honeymoon:
-            product.for_honeymoon = for_honeymoon
+        if priority:
+            product.priority = priority
         product.create()
 
         files = request.files.getlist('pictures')

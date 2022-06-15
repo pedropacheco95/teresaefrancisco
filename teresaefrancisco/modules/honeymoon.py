@@ -10,7 +10,7 @@ bp = Blueprint('honeymoon', __name__, url_prefix='/honeymoon')
 @bp.route('/all', methods=('GET', 'POST'))
 @bp.route('/all/<update>', methods=('GET', 'POST'))
 def all(update=None):    
-    products = Product.query.filter_by(for_honeymoon=True).all()
+    products = Product.query.filter_by(show_price=True).all()
     if update == 'update':
         for product in products:
             product.update_price_paid()

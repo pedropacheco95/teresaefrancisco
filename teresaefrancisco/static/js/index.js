@@ -23,13 +23,13 @@ function checkContentDivs() {
 
 function moveCar(car){
     var scroll = $(document).scrollTop();
-    let width = window.innerWidth;
+    let width = window.innerWidth-car_width;
     var scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
     let percentage = (scroll-scrollableHeight/2) / (scrollableHeight/2);
     let move = percentage*width;
     if (move > 0){
-        /* car.style.left = (move) + "px"; */
-        car.style.left = (move-car_width) + "px";
+        car.style.left = (move) + "px";
+        /* car.style.left = (move-car_width) + "px"; */
     }
 }
 

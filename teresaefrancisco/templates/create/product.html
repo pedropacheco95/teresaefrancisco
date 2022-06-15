@@ -1,5 +1,4 @@
 {% extends 'layout.html' %}
-{% import 'macros/products.html' as products_macro %}
 
 {% block content %}
 <div class="product_form_container">
@@ -21,8 +20,12 @@
                 <input type="text" name="store" placeholder="Store">
             </div>
             <div class="product_attribute_container">
-                <label for="for_honeymoon">Honeymoon</label>
-                <input type="checkbox" name="for_honeymoon" >
+                <label for="show_price">Mostar Preco</label>
+                <input type="checkbox" name="show_price" checked>
+            </div>
+            <div class="product_attribute_container">
+                <label for="priority"> Priority</label>
+                <input type="number" name="priority">
             </div>
             <div class="product_attribute_container">
                 <label for='picture'>Fotografias </label>

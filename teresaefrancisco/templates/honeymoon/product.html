@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% import 'macros/progress_bar.html' as progress_bar %}
+{% import 'macros/contributions.html' as contributions %}
 
 {% block content %}
 <script src="{{ url_for('static', filename='js/products.js')}}" defer></script>
@@ -16,28 +16,7 @@
       <p><b>{{product.name}}</b></p>
     </div>
     
-    <form method="post">
-      <div class="form" id="form_contri">
-        <div class ="info">    
-          <input type="text" name="name" placeholder="Nome">
-          <input type="text" name="value_to_contribute" placeholder="Valor a contribuir">
-          <input type="text" name="message" placeholder="Mensagem para os noivos..." style="height:60px">
-        </div>
-
-        <div class="transfer_type">
-          <img src="{{ url_for('static', filename='images/mbway_logo.png')}}" class="transfer_type_images">
-          <div> MB Way: 912913005 | 918966340 </div>
-        </div>
-
-        <div class="transfer_type">
-          <img src="{{ url_for('static', filename='images/transfer_logo.png')}}" class="transfer_type_images">
-          <div>  IBAN: PT50001000005993287000152 </div>
-        </div>
-        <br>
-        
-        <button class ="accept" id="contribute">Contribuir</button>
-      </div>
-    </form>
+    {{contributions.contribution_form()}}
   </div>
 
   <div class="product_container_column">

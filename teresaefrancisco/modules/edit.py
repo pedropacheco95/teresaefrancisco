@@ -5,7 +5,7 @@ from flask import Blueprint, flash, g, redirect, render_template, request, url_f
 from werkzeug.security import check_password_hash, generate_password_hash
 from teresaefrancisco.tools import tools
 
-from teresaefrancisco.models import Product , Contribution , ProductImage , Confirmation
+from teresaefrancisco.models import Product , Contribution , ProductImage , Confirmation , SpecificInfo
 
 bp = Blueprint('edit', __name__, url_prefix='/edit')
 
@@ -22,7 +22,8 @@ def product(product_id):
         description = request.form.get('description')
         price = float(request.form.get('price')) if request.form.get('price') else None
         store = request.form.get('store')
-        for_honeymoon = True if request.form.get('for_honeymoon') else False
+        show_price = True if request.form.get('show_price') else False
+        priority = int(request.form.get('priority')) if request.form.get('priority') else None
         images_to_delete = request.form.getlist('images_to_delete')
         id_of_images_to_delete = [int(id) for id in images_to_delete]
 
@@ -31,7 +32,8 @@ def product(product_id):
             'description':description,
             'price':price,
             'store':store,
-            'for_honeymoon':for_honeymoon,
+            'show_price':show_price,
+            'priority':priority
         }
         product.update_with_dict(values)
         
@@ -101,3 +103,22 @@ def contribution(contribution_id,delete=None):
 def confirmations():
     confirmations = Confirmation.query.all()
     return render_template('edit/confirmations.html',confirmations=confirmations)
+
+@bp.route('/specific_info', methods=('GET', 'POST'))
+def specific_info():
+    specific_info = SpecificInfo.query.first()
+    if request.method == 'POST':
+        title = request.form.get('title')
+        mbway1 = request.form.get('mbway1')
+        mbway2 = request.form.get('mbway2')
+        iban = request.form.get('iban')
+        information = {
+            'title':title,
+            'mbway1':mbway1,
+            'mbway2':mbway2,
+            'iban':iban
+        }
+        specific_info.information = information
+        specific_info.save()
+        return redirect(url_for('edit.specific_info'))
+    return render_template('edit/specific_info.html',specific_info=specific_info)

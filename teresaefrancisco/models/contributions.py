@@ -3,6 +3,8 @@ from teresaefrancisco.sql_db import db
 from sqlalchemy import Column, Integer , String , Text ,Float , ForeignKey
 from sqlalchemy.orm import relationship
 
+from teresaefrancisco.tools import specific_info
+
 class Contribution(db.Model ,model.Model,model.Base):
     __tablename__ = 'contribution'
     __table_args__ = {'extend_existing': True}
@@ -15,7 +17,7 @@ class Contribution(db.Model ,model.Model,model.Base):
     product = relationship('Product', back_populates="contributions")
 
     def thank_you_message(self):
-        return 'Obrigado {pessoa} pela contribuição! Beijinhos, Inês e Pedro'.format(pessoa=self.name)
+        return specific_info.generate_ty_contribution_message(self.name)
 
     def update_with_dict(self,values):
         if values['name'] and values['name'] != self.name:
@@ -27,4 +29,5 @@ class Contribution(db.Model ,model.Model,model.Base):
         if values['product'] and values['product'] != self.product:
             self.product = values['product']
         self.save()
+        self.product.update_price_paid()
         return True

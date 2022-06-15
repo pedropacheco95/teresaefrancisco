@@ -23,5 +23,14 @@
             <a href="{{url_for('edit.confirmations')}}"> Para editar confirmações </a>
         </div>
     </div>
+    <div class="edit_block_container">
+        <h1>Ver</h1>
+        <div class="model_to_edit">
+            <a href="{{url_for('confirmations.all')}}"> Para ver todas as confirmações </a>
+        </div>
+        <div class="model_to_edit">
+            <a href="{{url_for('contributions.all')}}"> Para ver todas as contribuições </a>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -4,7 +4,17 @@
 {% block content %}
 <script src="{{ url_for('static', filename='js/products.js')}}" defer></script>
 
+
 <div class="products_background">
+  <div class="product_card productSliddingDivs">
+    <a href="http://www.portadeferro.pt/listas.asp" target="_blank">
+        <img src="{{url_for('static',filename='images/porta_ferro.jpg')}}" alt="Imagem da Peça">
+        <div>
+            <p>Login: FrTe352C</p>
+            <p>Password: qxnMYsnk</p>
+        </div>
+    </a>
+  </div>
   {% for product in products %}
     {{products_macro.card(product)}}
   {% endfor %}

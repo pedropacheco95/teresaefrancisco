@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% import 'macros/products.html' as products_macro %}
+{% import 'macros/products.html' as products_macro with context %}
 
 {% block content %}
 <script src="{{ url_for('static', filename='js/products.js')}}" defer></script>

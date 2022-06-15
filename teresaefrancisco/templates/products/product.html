@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
-{% import 'macros/progress_bar.html' as progress_bar %}
-{% import 'macros/contributions.html' as contributions %}
+{% import 'macros/progress_bar.html' as progress_bar with context %}
+{% import 'macros/contributions.html' as contributions with context %}
 
 {% block content %}
 <script src="{{ url_for('static', filename='js/products.js')}}" defer></script>

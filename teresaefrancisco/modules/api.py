@@ -6,7 +6,7 @@ from flask import Blueprint, flash, g, jsonify, redirect, render_template, reque
 from werkzeug.security import check_password_hash, generate_password_hash
 from teresaefrancisco.tools import tools
 from teresaefrancisco.model import Model
-from teresaefrancisco.models import Product , Confirmation
+from teresaefrancisco.models import Product , Confirmation , SpecificInfo
 
 bp = Blueprint('api', __name__, url_prefix='/api')
 
@@ -28,8 +28,8 @@ def delete_confirmation(id):
 
 @bp.route("/to_csv/<model>", methods =["GET", "POST"])
 def to_csv(model):
-    models = Product.query.first().all_tables_object()
-    instances = Product.query.first().get_all_tables()
+    models = SpecificInfo.query.first().all_tables_object()
+    instances = SpecificInfo.query.first().get_all_tables()
     if not model in models.keys():
         return "Model not found"
 

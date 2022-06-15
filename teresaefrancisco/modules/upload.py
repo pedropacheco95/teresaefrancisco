@@ -5,12 +5,12 @@ from flask import Blueprint, redirect, url_for
 
 bp = Blueprint('upload', __name__, url_prefix='/upload')
 
-from teresaefrancisco.models import Product , ProductImage , Contribution
+from teresaefrancisco.models import Product , ProductImage , Contribution , SpecificInfo
 
 @bp.route("/to_csv", methods =["GET", "POST"])
 def to_csv():
-    models = Product.query.first().all_tables_object()
-    instances = Product.query.first().get_all_tables()
+    models = SpecificInfo.query.first().all_tables_object()
+    instances = SpecificInfo.query.first().get_all_tables()
     for model in models.keys():
         models[model] = models[model].__table__.columns.keys()
     for model in instances.keys():

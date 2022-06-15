@@ -21,7 +21,7 @@ def product():
 
         product = Product(name=name,price=price,show_price=show_price)
         if description:
-            product.store = description
+            product.description = description
         if store:
             product.store = store
         if priority:
